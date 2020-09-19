@@ -1,10 +1,20 @@
 import React from 'react';
-import {View} from 'react-native';
+import {Text} from 'react-native';
+import {CardProps} from '../../interfaces';
 
-// import { Container } from './styles';
+import {CardContainer, ImageCard} from './styles';
 
-const Card: React.FC = () => {
-  return <View />;
+const Card: React.FC<CardProps> = ({image, name}) => {
+  return (
+    <CardContainer>
+      <ImageCard
+        source={{
+          uri: image,
+        }}
+      />
+      <Text>{name}</Text>
+    </CardContainer>
+  );
 };
 
 export default Card;
