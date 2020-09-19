@@ -2,7 +2,12 @@ import React from 'react';
 import {Text} from 'react-native';
 import {CardProps} from '../../interfaces';
 
-import {CardContainer, ImageCard} from './styles';
+import {
+  CardContainer,
+  ContainerInformations,
+  ImageCard,
+  TituloCard,
+} from './styles';
 
 const Card: React.FC<CardProps> = ({image, name}) => {
   return (
@@ -12,7 +17,9 @@ const Card: React.FC<CardProps> = ({image, name}) => {
           uri: image,
         }}
       />
-      <Text>{name}</Text>
+      <ContainerInformations>
+        <TituloCard>{name}</TituloCard>
+      </ContainerInformations>
     </CardContainer>
   );
 };
