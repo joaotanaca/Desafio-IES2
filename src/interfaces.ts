@@ -14,3 +14,19 @@ export interface MoviesMapProps {
     };
   };
 }
+
+export interface BaseThemeInterface {
+  mode: string;
+  PRIMARY_BACKGROUND_COLOR: string;
+  SECONDARY_BACKGROUND_COLOR: string;
+  PRIMARY_TEXT_COLOR: string;
+  SECONDARY_TEXT_COLOR: string;
+  PRIMARY_BUTTON_COLOR: string;
+  SECONDARY_BUTTON_COLOR: string;
+}
+
+export interface stateRedux {
+  themeReducer: {
+    theme: BaseThemeInterface;
+  };
+}

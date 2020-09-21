@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import {BaseThemeInterface} from '../../interfaces';
 
 export const BlockMovieContainer = styled.SafeAreaView`
   display: flex;
@@ -7,7 +8,6 @@ export const BlockMovieContainer = styled.SafeAreaView`
   align-items: center;
   width: 100%;
   height: 100%;
-  padding-bottom: 10px;
 `;
 
 export const ContainerMovies = styled.ScrollView.attrs({
@@ -18,10 +18,13 @@ export const ContainerMovies = styled.ScrollView.attrs({
     flexWrap: 'wrap',
   },
 })`
+  padding-vertical: 10px;
   width: 100%;
   flex: 1;
   display: flex;
   padding-horizontal: 10px;
+  background-color: ${(props: {theme: BaseThemeInterface}) =>
+    props.theme.SECONDARY_BACKGROUND_COLOR};
 `;
 export const TitlePage = styled.Text`
   padding: 20px;

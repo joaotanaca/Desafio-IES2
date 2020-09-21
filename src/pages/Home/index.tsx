@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import api from '../../services/api';
@@ -26,7 +26,7 @@ const Home: React.FC = () => {
         <Ionicons name="ios-videocam-outline" size={24} />
       </TitleContainer>
       <ContainerMovies>
-        {movies.data.map(({ show }: MoviesMapProps) => {
+        {movies.data.map(({show}: MoviesMapProps) => {
           const image = show.image ?? {
             medium:
               'https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg',
