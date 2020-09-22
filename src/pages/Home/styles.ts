@@ -14,6 +14,7 @@ export const ContainerMovies = styled.ScrollView.attrs({
   showsVerticalScrollIndicator: false,
   contentContainerStyle: {
     justifyContent: 'space-around',
+    alignItems: 'center',
     flexDirection: 'row',
     flexWrap: 'wrap',
   },

@@ -7,7 +7,7 @@ import {connect, useSelector, useDispatch} from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {BaseThemeInterface, stateRedux} from '../../interfaces';
-import Favoritos from '../../pages/Favoritos';
+import Cart from '../../pages/Cart';
 import Home from '../../pages/Home';
 import {switchTheme} from '../../store/actions';
 import Pesquisa from '../../pages/Pesquisa';
@@ -20,7 +20,7 @@ const Router: React.FC<{theme: BaseThemeInterface}> = ({theme}) => {
   const Tab = createBottomTabNavigator();
   const Icons = {
     Home: {true: 'ios-home', false: 'ios-home-outline'},
-    Favoritos: {true: 'ios-bookmarks', false: 'ios-bookmarks-outline'},
+    Carrinho: {true: 'ios-cart', false: 'ios-cart-outline'},
     Pesquisa: {
       true: 'ios-search',
       false: 'ios-search',
@@ -64,7 +64,7 @@ const Router: React.FC<{theme: BaseThemeInterface}> = ({theme}) => {
           }}>
           <Tab.Screen name="Home" component={Home} />
           <Tab.Screen name="Pesquisa" component={Pesquisa} />
-          <Tab.Screen name="Favoritos" component={Favoritos} />
+          <Tab.Screen name="Carrinho" component={Cart} />
         </Tab.Navigator>
       </NavigationContainer>
     </ThemeProvider>

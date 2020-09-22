@@ -1,5 +1,5 @@
 import {Movie} from '../interfaces';
-import {ADD_MOVIE, REMOVE_MOVIE} from './actions';
+import {ADD_MOVIE, REMOVE_MOVIE, FINISH_CART} from './actions';
 
 const initialState: Movie[] = [];
 
@@ -15,6 +15,9 @@ const cartReducer = (
         (movie) => movie.id !== action.movie.id,
       );
       return movieRemoved;
+    case FINISH_CART:
+      console.log(state);
+      return initialState;
     default:
       return state;
   }
