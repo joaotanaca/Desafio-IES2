@@ -1,6 +1,12 @@
 export interface CardProps {
-  image: string;
+  id: number;
+  image: {
+    medium: string;
+    original: string;
+  };
   name: string;
+  genres: [];
+  officialSite: string;
 }
 
 export interface MoviesMapProps {
@@ -12,6 +18,8 @@ export interface MoviesMapProps {
       medium: string;
       original: string;
     };
+    genres: [];
+    officialSite: string;
   };
 }
 
@@ -28,5 +36,17 @@ export interface BaseThemeInterface {
 export interface stateRedux {
   themeReducer: {
     theme: BaseThemeInterface;
+  };
+  cartReducer: Movie[];
+}
+
+export interface Movie {
+  id: number;
+  name: string;
+  genres: [];
+  officialSite: string;
+  image: {
+    medium: string;
+    original: string;
   };
 }

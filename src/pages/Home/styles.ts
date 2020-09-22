@@ -26,17 +26,3 @@ export const ContainerMovies = styled.ScrollView.attrs({
   background-color: ${(props: {theme: BaseThemeInterface}) =>
     props.theme.SECONDARY_BACKGROUND_COLOR};
 `;
-export const TitlePage = styled.Text`
-  padding: 20px;
-  text-align: center;
-  font-size: 20px;
-  font-family: 'Montserrat-Medium';
-`;
-
-export const TitleContainer = styled.View`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-evenly;
-`;

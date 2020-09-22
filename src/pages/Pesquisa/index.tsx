@@ -1,26 +1,40 @@
-import React from 'react';
-import {Button, Text, View} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import {stateRedux} from '../../interfaces';
-import {switchTheme} from '../../store/actions';
-import {darkTheme, lightTheme} from '../../styles/theme';
+import React, {useEffect, useState} from 'react';
+import Card from '../../components/Card';
 
-// import { Container } from './styles';
+import {MoviesMapProps} from '../../interfaces';
+import api from '../../services/api';
+import {ContainerSearch, InputSearch, SearchContainer} from './styles';
 
 const Pesquisa: React.FC = () => {
-  const dispatch = useDispatch();
-  const theme = useSelector((state: stateRedux) => state.themeReducer.theme);
+  const [search, setSearch] = useState('');
+  const [searchResult, setSearchResult] = useState([]);
+
+  useEffect(() => {
+    api.get(`/shows?q=${search}`).then((res) => setSearchResult(res.data));
+  }, [search]);
 
   return (
-    <View>
-      <Text>{JSON.stringify(theme.mode)}</Text>
-      <Button
-        title="Switch Theme"
-        onPress={() =>
-          dispatch(switchTheme(theme.mode === 'dark' ? lightTheme : darkTheme))
-        }
-      />
-    </View>
+    <SearchContainer>
+      <InputSearch onChangeText={(text) => setSearch(text)} />
+      <ContainerSearch>
+        {searchResult.map(({show}: MoviesMapProps) => {
+          const image = show.image ?? {
+            medium:
+              'https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg',
+          };
+          return (
+            <Card
+              image={image}
+              name={show.name}
+              key={show.id}
+              id={show.id}
+              genres={show.genres}
+              officialSite={show.officialSite}
+            />
+          );
+        })}
+      </ContainerSearch>
+    </SearchContainer>
   );
 };
 

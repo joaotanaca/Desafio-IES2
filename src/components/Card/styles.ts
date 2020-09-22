@@ -1,13 +1,14 @@
 import styled from 'styled-components/native';
 import {ImageProps} from 'react-native';
 import {BaseThemeInterface} from '../../interfaces';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export const CardContainer = styled.View`
+  position:relative;
   display: flex;
   flex-direction: column;
-  width: 42.5%;
-  height: 250px;
-  margin-bottom: 20px;
+  width:100%;
+  height:100%;
   background-color: ${(props: {theme: BaseThemeInterface}) =>
     props.theme.PRIMARY_BACKGROUND_COLOR};
   border-radius: 10px;
@@ -41,4 +42,25 @@ export const TituloCard = styled.Text`
   margin: 10px 0;
   padding: 0 5px;
   font-family: 'Montserrat-Medium';
+`;
+
+export const Touch = styled.TouchableOpacity`
+  width: 42.5%;
+  height: 250px;
+  margin-bottom: 20px;
+`;
+
+export const CartIcon = styled(Ionicons).attrs({
+  name: 'ios-cart',
+  size: 20,
+})`
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  background-color: ${(props: {theme: BaseThemeInterface}) =>
+    props.theme.PRIMARY_BACKGROUND_COLOR};
+  color: ${(props: {theme: BaseThemeInterface}) =>
+    props.theme.PRIMARY_TEXT_COLOR};
+  border-radius: 50px;
+  padding: 5px;
 `;
